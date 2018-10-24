@@ -12,6 +12,23 @@ import router from '@/router/index.js'
 import VueResource from 'vue-resource'
 Vue.use(VueResource)
 
+// 导入格式化时间的插件
+import moment from 'moment'
+// 定义全局的过滤器
+Vue.filter('dateFormat', function (dataStr, pattern = "YYYY-MM-DD HH:mm:ss") {
+  return moment(dataStr).format(pattern)
+})
+
+//设置请求根路径
+Vue.http.options.root = 'http://027xin.com:8899';
+
+
+import { Header, Swipe, SwipeItem, Button } from 'mint-ui'
+Vue.component(Header.name, Header)
+Vue.component(Swipe.name, Swipe)
+Vue.component(SwipeItem.name, SwipeItem)
+Vue.component(Button.name, Button)
+
 
 //
 import MintUI from 'mint-ui'

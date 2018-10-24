@@ -4,11 +4,12 @@
 			<mt-swipe-item v-for="(item,index) in lunbotuList" :key="index">
 				<img :src="item.img" alt="">
 			</mt-swipe-item>
-		</mt-swipe>
+	</mt-swipe>
         <ul class="mui-table-view mui-grid-view mui-grid-9 ">
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+				    <router-link to="/home/newslist">
 		                    <img class="cc" src="../../images/menu1.png" alt="">
-		                    <div class="mui-media-body">新闻资讯</div></a></li>
+		                    <div class="mui-media-body">新闻资讯</div></router-link></li>
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
 		                    <img class="cc" src="../../images/menu2.png" alt="">
 		                    <div class="mui-media-body">图片分享</div></a></li>
@@ -41,7 +42,7 @@ created(){
 },
 methods:{
 	getLunbotu(){
-		this.$http.get("http://027xin.com:8899/api/getlunbo").then(result => {
+		this.$http.get("api/getlunbo").then(result => {
 			// console.log(result.body);
 			if(result.body.status === 0) {
 				this.lunbotuList = result.body.message;
